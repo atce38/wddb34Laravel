@@ -19,6 +19,19 @@ class StudentController extends Controller
         return view('students.show');
     }
 
+    public function create(){
+
+        return view('students.create');
+    }
+
+    public function store(Request $request){
+
+        $fname=$request->first_name;
+        $lname=$request->last_name;
+
+        echo "<h1>".$fname.' '.$lname."</h1>";
+
+    }
     public function edit($id,$name){
 
         echo "Hello Class in Edit Route! ".$id.' Name = '.$name;

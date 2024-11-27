@@ -27,3 +27,12 @@ In this session, you will:
 - Learn how to submit form data to a route and display the submitted data in the browser.
 - Use Laravel's request handling to capture input and pass it back to the view.
 - Understand basic form security in Laravel, such as CSRF protection.
+
+### Lecture 5 - PHP - Laravel: Create Model with Migration, Create Migration to Create/Update Table Attributes, Create Data in Database and Read Data from Database Using Laravel Model, Create Route File Other than web.php
+In this session, you will:
+- Create a model with migration in Laravel to set up the database table structure.
+- Use Artisan commands to create and modify migrations for creating or updating table attributes.
+- Insert data into the database using Laravel models and understand how to read data.
+- Retrieve data from the database using Eloquent models and display it in views.
+- Create a route file other than `web.php` for organizing routes in a modular way.
+

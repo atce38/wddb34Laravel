@@ -19,6 +19,45 @@
 
 </div>
 
+<div class="container">
+    <div>
+        <a class="btn btn-primary" href="{{ route('student.create') }}">Create</a>
+    </div>
+    <div
+        class="table-responsive"
+    >
+        <table
+            class="table table-striped table-hover align-middle"
+        >
+            <thead class="table-dark">
+                <caption>
+                    Student Record
+                </caption>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+
+                @foreach ($studentz as $stu)
+                <tr>
+                    <td>{{ $stu->id }}</td>
+                    <td>{{ $stu->first_name }}</td>
+                    <td>{{ $stu->last_name }}</td>
+                </tr>
+                @endforeach
+
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </div>
+
+
+</div>
 @include('students.show')
 
 @endsection

@@ -3,6 +3,7 @@
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
+include('admin.php');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,6 +23,7 @@ Route::prefix('students')->group(function(){
     Route::post('/update/{id}',[StudentController::class,'update'])->name('student.update');
     Route::get('/show',[StudentController::class,'show'])->name('student.show');
     Route::get('/delete',[StudentController::class,'delete'])->name('student.delete');
+
 });
 
 // Route::prefix('categories')->group(function(){

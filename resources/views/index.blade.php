@@ -37,6 +37,7 @@
                     <th>ID</th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -44,8 +45,9 @@
                 @foreach ($studentz as $stu)
                 <tr>
                     <td>{{ $stu->id }}</td>
-                    <td>{{ $stu->first_name }}</td>
+                    <td><img width="100" src="{{ $stu->image }}" alt=""> {{ $stu->first_name }}</td>
                     <td>{{ $stu->last_name }}</td>
+                    <td><a class="btn btn-primary" href="{{ route('student.edit',['id'=>$stu->id]) }}">Edit</a><a href="{{ route('student.delete',['id'=>$stu->id]) }}" class="btn btn-danger">Delete</a></td>
                 </tr>
                 @endforeach
 

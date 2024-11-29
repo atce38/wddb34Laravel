@@ -23,8 +23,8 @@ class StudentController extends Controller
     }
 
     public function create(){
-
-        return view('students.create');
+        $student=new Student();
+        return view('students.create',compact('student'));
     }
 
     public function store(Request $request){
@@ -40,15 +40,44 @@ class StudentController extends Controller
 
 
         // echo "<h1>".$fname.' '.$lname."</h1>";
+        $data=$request->all();
 
+        if($request->hasFile('img')){
+            $file=$request->file('img');
+            $dest=public_path('assets/img');
+            $file_name=time().'_'. $file->getClientOriginalName();
+            $file->move($dest,$file_name);
+            $data['image']='/assets/img/'.$file_name;
+        }
 
-        Student::create($request->all());
+        Student::create($data);
 
         return redirect()->route('student.index');
 
     }
-    public function edit($id,$name){
+    public function edit($id){
+        $student=Student::find($id);
+        return view('students.create',compact('student'));
+        // echo "Hello Class in Edit Route! ".$id.' Name = '.$name;
+    }
 
-        echo "Hello Class in Edit Route! ".$id.' Name = '.$name;
+    public function update(Request $request,$id){
+        $student=Student::find($id);
+        $data=$request->all();
+        if($request->hasFile('img')){
+            $file=$request->file('img');
+            $dest=public_path('assets/img');
+            $file_name=time().'_'. $file->getClientOriginalName();
+            $file->move($dest,$file_name);
+            $data['image']='/assets/img/'.$file_name;
+        }
+        $student->update($data);
+        return redirect()->route('student.index');
+    }
+
+    public function delete($id){
+        $student=Student::find($id);
+        $student->delete();
+        return redirect()->route('student.index');
     }
 }

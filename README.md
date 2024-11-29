@@ -36,3 +36,10 @@ In this session, you will:
 - Retrieve data from the database using Eloquent models and display it in views.
 - Create a route file other than `web.php` for organizing routes in a modular way.
 
+### Lecture 6 - PHP - Laravel: Edit, Update, Delete Object, Upload File and Save It to Database
+In this session, you will:
+- Learn how to edit and update records in the database using Eloquent models.
+- Implement functionality to delete objects from the database.
+- Handle file uploads in Laravel and save the file to the public folder.
+- Save the file path in the database to associate with other model data.
+- Understand how to manage file validation and errors during uploads.

@@ -54,16 +54,16 @@ In this session, you will:
 - Learn how to validate user input and store it in the database during registration.
 - Understand the concept of **guards** and **providers** in Laravel authentication.
 
-#### Detailed Steps for Authentication using Laravel UI:
+    #### Detailed Steps for Authentication using Laravel UI:
 
-1. **Install Laravel UI**  
-  - Run the following command to install the Laravel UI package:
-    composer require laravel/ui
-  - Generate Authentication Scaffolding
-  - Use Artisan to generate the authentication views and controllers:
-    Run:
-    php artisan ui bootstrap --auth
-  - Install NPM Dependencies and Compile Assets (if using frontend)
-    Run:
-    npm install
-    npm run build
+    1. **Install Laravel UI**  
+    - Run the following command to install the Laravel UI package:
+        composer require laravel/ui
+    2. **Generate Authentication Scaffolding**
+    - Use Artisan to generate the authentication views and controllers:
+        Run:
+        php artisan ui bootstrap --auth
+    - Install NPM Dependencies and Compile Assets (if using frontend)
+        Run:
+        npm install
+        npm run build

@@ -9,9 +9,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('login',function(){
-    echo "Hello Class!";
-})->name('user.login');
+// Route::get('login',function(){
+//     echo "Hello Class!";
+// })->name('user.login');
 
 
 Route::prefix('students')->group(function(){
@@ -53,3 +53,7 @@ Route::prefix('students')->group(function(){
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

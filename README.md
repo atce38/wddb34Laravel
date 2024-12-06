@@ -62,8 +62,8 @@ In this session, you will:
     2. **Generate Authentication Scaffolding**
     - Use Artisan to generate the authentication views and controllers:
         Run:
-        php artisan ui bootstrap --auth
+        **php artisan ui bootstrap --auth**
     - Install NPM Dependencies and Compile Assets (if using frontend)
         Run:
-        npm install
-        npm run build
+        **npm install**
+        **npm run build**

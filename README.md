@@ -46,10 +46,24 @@ In this session, you will:
 
 ### Lecture 7 - PHP - Laravel: Implement Laravel Authentication and Customize Registration  
 In this session, you will:
-- Learn how to implement Laravel's built-in authentication system using `php artisan make:auth` (or `artisan ui` in Laravel 7+).
-- Understand the basics of the authentication flow in Laravel (Login, Registration, Forgot Password).
-- Configure and customize the default authentication views for user registration.
-- Modify the registration process to include additional fields (e.g., username, phone number).
-- Learn how to validate and store custom user input during registration.
-- Protect routes with middleware to ensure that only authenticated users can access certain pages.
-- Understand the concept of "guard" and "providers" in the context of Laravel authentication.
+- Learn how to implement Laravel's built-in authentication system using **Laravel UI**.
+- Install the `laravel/ui` package and use Artisan to generate authentication views and controllers.
+- Customize the default authentication views (Login, Registration, Reset Password).
+- Add additional fields to the registration process (e.g., username, phone number) and store them in the database.
+- Use the `auth` middleware to protect routes and ensure that only authenticated users can access specific pages.
+- Learn how to validate user input and store it in the database during registration.
+- Understand the concept of **guards** and **providers** in Laravel authentication.
+
+#### Detailed Steps for Authentication using Laravel UI:
+
+1. **Install Laravel UI**  
+  - Run the following command to install the Laravel UI package:
+   composer require laravel/ui
+  - Generate Authentication Scaffolding
+  - Use Artisan to generate the authentication views and controllers:
+    Run:
+    php artisan ui bootstrap --auth
+  - Install NPM Dependencies and Compile Assets (if using frontend)
+    Run:
+    npm install
+    npm run build

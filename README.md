@@ -58,12 +58,12 @@ In this session, you will:
 
     1. **Install Laravel UI**  
     - Run the following command to install the Laravel UI package:
-        composer require laravel/ui
+        ***composer require laravel/ui***
     2. **Generate Authentication Scaffolding**
     - Use Artisan to generate the authentication views and controllers:
         Run:
-        **php artisan ui bootstrap --auth**
+        ***php artisan ui bootstrap --auth***
     - Install NPM Dependencies and Compile Assets (if using frontend)
         Run:
-        **npm install**
-        **npm run build**
+        ***npm install***
+        ***npm run build***

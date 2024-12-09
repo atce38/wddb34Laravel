@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\StudentController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 include('admin.php');
 Route::get('/', function () {
@@ -9,9 +11,12 @@ Route::get('/', function () {
 });
 
 
-// Route::get('login',function(){
-//     echo "Hello Class!";
-// })->name('user.login');
+Route::get('profile',function(){
+    // return User::select('departments.name as department','departments.description','users.*')
+    // ->join('departments','departments.id','=','users.department_id')->find(auth()->user()->id);
+
+    return auth()->user();
+})->name('user.profile')->middleware('auth');
 
 
 Route::prefix('students')->group(function(){
@@ -35,9 +40,6 @@ Route::prefix('students')->group(function(){
 //     Route::post('/update/{id}',[StudentController::class,'update'])->name('category.update');
 //     Route::get('/show',[StudentController::class,'show'])->name('category.show');
 //     Route::get('/delete',[StudentController::class,'delete'])->name('category.delete');
-
-
-
 // });
 
 

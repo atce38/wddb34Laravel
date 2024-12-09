@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+@php
+use App\Models\Department;
+
+$departments=Department::get();
+
+@endphp
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -45,6 +51,27 @@
                                 <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
 
                                 @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="department_id" class="col-md-4 col-form-label text-md-end">{{ __('Select Department') }}</label>
+
+                            <div class="col-md-6">
+
+                                <select name="department_id" required class="form-control" id="department_id">
+
+                                    <option value="{{ null }}">Select Department</option>
+                                    @foreach ($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('department_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

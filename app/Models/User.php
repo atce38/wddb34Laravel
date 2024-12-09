@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
+        'department_id',
     ];
 
     /**
@@ -46,4 +47,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    protected $appends =['user_department'];
+
+    public function getUserDepartmentAttribute(){
+        $dpt=Department::find($this->department_id);
+        if(!$dpt){
+            return;
+        }
+        return $dpt->name;
+    }
+
+    // public function department(){
+
+    //     return $this->belongsTo(Department::class);
+    // }
 }

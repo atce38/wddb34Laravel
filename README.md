@@ -67,3 +67,10 @@ In this session, you will:
         Run:
         ***npm install***
         ***npm run build***
+
+### Lecture 8 - PHP - Laravel: Implement Role-Based Authentication, Create Relations Between Departments and Users, and Data Retrieval Using Joins and Appends  
+In this session, you will:
+- Implement role-based authentication in Laravel using an **enum** field in the `users` table to differentiate between user roles (e.g., Admin, User).
+- Create relationships between models using **Eloquent relationships**, particularly between `Department` and `User`.
+- Retrieve data from the database using **joins** and **appends** in Eloquent queries.
+- Use **Eloquent’s dynamic properties** to append related data to your queries without adding extra queries.

@@ -13,7 +13,9 @@ class StudentController extends Controller
         $students=['Zainab Zahid','Zainab Kamran','Iqra Naz M.Boota'];
         $is_admin=false;
 
-        $studentz=Student::get();
+        // Limit with 8 rows
+        // $studentz=Student::limit(8)->get();
+        $studentz=Student::paginate(10);
         // return $studentz;
         return view('index',compact('is_admin','name','age','students','studentz'));
     }

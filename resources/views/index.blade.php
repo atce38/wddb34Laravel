@@ -56,10 +56,13 @@
 
             </tfoot>
         </table>
+        <div>
+            {{ $studentz->links('pagination::bootstrap-5') }}
+        </div>
     </div>
 
 
 </div>
-@include('students.show')
+{{-- @include('students.show') --}}
 
 @endsection

@@ -4,6 +4,8 @@ use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 include('admin.php');
 Route::get('/', function () {
@@ -18,6 +20,27 @@ Route::get('profile',function(){
     return auth()->user();
 })->name('user.profile')->middleware('auth');
 
+Route::get('users',function(Request $request){
+
+    $department_id=$request->department_id;
+    $s_earch=$request->s_earch;
+
+    $departments=DB::table('departments')->get();
+    $users=User::select('departments.name as department','departments.description','users.*')
+    ->leftJoin('departments','departments.id','=','users.department_id');
+    if(isset($department_id) && $department_id !=null)
+    {
+        $users->where('users.department_id','=',$department_id);
+    }
+    if(isset($s_earch) && $s_earch !=null)
+    {
+        $users->where('users.name','LIKE','%'.$s_earch.'%')->orWhere('departments.name','LIKE','%'.$s_earch.'%');
+    }
+
+    $users=$users->get();
+    return view('user.index',compact('users','departments'));
+
+});
 
 Route::prefix('students')->group(function(){
 

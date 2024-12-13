@@ -74,3 +74,12 @@ In this session, you will:
 - Create relationships between models using **Eloquent relationships**, particularly between `Department` and `User`.
 - Retrieve data from the database using **joins** and **appends** in Eloquent queries.
 - Use **Eloquent’s dynamic properties** to append related data to your queries without adding extra queries.
+
+### Lecture 9 - PHP - Laravel: limit(), pagination, Filter Data  
+In this session, you will:
+- Learn how to use the `limit()` method in Laravel to limit the number of records retrieved from the database.
+- Implement pagination in Laravel to display a large set of data across multiple pages, making it more manageable.
+- Create filters to allow users to narrow down the displayed data based on certain criteria (e.g., by category, date, or status).
+- Understand how to combine **limit()**, **where()** conditions, and **pagination** to build efficient and user-friendly data displays.
+- Learn how to pass the filtered and paginated data to views, and how to customize pagination links using Blade.
+

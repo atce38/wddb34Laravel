@@ -22,7 +22,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('student.edit',['id'=>256,'name'=>'Muhammad Ali']) }}">Courses</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Contact US</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('user.login') }}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
             </ul>
         </div>
 

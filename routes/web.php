@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StudentController;
+use App\Models\City;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -32,13 +33,31 @@ Route::get('users',function(Request $request){
     {
         $users->where('users.department_id','=',$department_id);
     }
+
     if(isset($s_earch) && $s_earch !=null)
     {
-        $users->where('users.name','LIKE','%'.$s_earch.'%')->orWhere('departments.name','LIKE','%'.$s_earch.'%');
+        $users->where(function($query) use ($s_earch) {
+            $query->where('name', 'LIKE', '%' . $s_earch . '%')
+                  ->orWhereHas('department', function($q) use ($s_earch) {
+                      $q->where('name', 'LIKE', '%' . $s_earch . '%');
+                  });
+        });
     }
 
     $users=$users->get();
     return view('user.index',compact('users','departments'));
+
+});
+
+
+Route::get('getCities',function(Request $request){
+
+    $province_id=$request->someattribute;
+    $cities=City::where('province_id',$province_id)->get();
+    echo '<option value="{{ null }}">Select City</option>';
+    foreach($cities as $city){
+        echo '<option value="'.$city->id.'">'.$city->name.'</option>';
+    }
 
 });
 

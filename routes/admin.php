@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\DepartmentController;
 
-Route::middleware('isAdmin')->prefix('admin')->group(function(){
+Route::prefix('admin')->group(function(){
 
     Route::get('/',function(){
-        return 'Hello Admin';
+        return view('admin.master.dashboard');
     });
 
 

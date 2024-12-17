@@ -83,3 +83,29 @@ In this session, you will:
 - Understand how to combine **limit()**, **where()** conditions, and **pagination** to build efficient and user-friendly data displays.
 - Learn how to pass the filtered and paginated data to views, and how to customize pagination links using Blade.
 
+### Lecture 10 - PHP - Laravel: Improve Search Filter, Populate View using Ajax Call, Implement Admin Panel in Laravel Project  
+In this session, you will:
+- **Improve Search Filter**: Enhance the search functionality by using query parameters or form submissions to filter data dynamically based on user input (e.g., search by name, date, or status).
+- **Populate View Using Ajax**: Learn how to make asynchronous requests using **AJAX** to fetch filtered data without refreshing the page. This will improve the user experience by loading only the relevant data.
+    - Implement an AJAX call using JavaScript/jQuery.
+    - Update the view dynamically with the filtered data from the server.
+- **Implement Admin Panel**: Set up an **Admin Panel** with role-based access control. The Admin Panel should allow the administrator to:
+    - View and manage users.
+    - View and manage content (posts, products, etc.).
+    - Use AJAX-based dynamic features (e.g., live search, pagination).
+    - Implement authorization checks to restrict access to the Admin Panel only for users with an admin role.
+
+#### Steps for Implementing AJAX Search Filter:
+1. **Add AJAX Search Functionality**
+    - Use jQuery to capture search input and send an AJAX request to the backend.
+    - Use Laravel's `Route` to create an endpoint that handles the AJAX request and returns data.
+    - Return the filtered data as JSON and update the frontend dynamically.
+
+2. **Implement Dynamic Content Population**
+    - Use jQuery to handle the response and update the DOM with the filtered results without page reload.
+    - Make sure the data is presented in an HTML table or grid for better UX.
+
+3. **Set Up the Admin Panel**  
+    - Create an Admin Dashboard view where the administrator can manage content and users.
+    - Use Laravel’s **middleware** to restrict access to the admin dashboard, ensuring that only authorized users with the admin role can access it.
+    - Implement features like CRUD operations for managing users and posts, and dynamic table updates using AJAX.

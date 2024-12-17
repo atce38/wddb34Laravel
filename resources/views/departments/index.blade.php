@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Departments</title>
-</head>
-<body>
-    <h1>Departments</h1>
+@extends('admin.master.app')
+
+@section('content')
+
+<h1>Departments</h1>
     <a href="{{ route('departments.create') }}">Create Department</a>
 
     @if(session('success'))
         <div style="color: green;">{{ session('success') }}</div>
     @endif
 
-    <table border="1">
-        <thead>
+    <table class="table table-striped ">
+        <thead class="table-dark">
             <tr>
                 <th>Name</th>
                 <th>Description</th>
@@ -37,5 +34,5 @@
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+
+@endsection

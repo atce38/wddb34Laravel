@@ -3,8 +3,10 @@
 @section('content')
 @php
 use App\Models\Department;
+use App\Models\Province;
 
 $departments=Department::get();
+$provinces=Province::get();
 
 @endphp
 <div class="container">
@@ -80,6 +82,45 @@ $departments=Department::get();
                         </div>
 
                         <div class="row mb-3">
+                            <label for="province_id" class="col-md-4 col-form-label text-md-end">{{ __('Select Province') }}</label>
+
+                            <div class="col-md-6">
+
+                                <select name="province_id" required class="form-control" id="province_id">
+
+                                    <option value="{{ null }}">Select Province</option>
+                                    @foreach ($provinces as $province)
+                                    <option value="{{ $province->id }}">{{ $province->name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('province_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="city_id" class="col-md-4 col-form-label text-md-end">{{ __('Select City') }}</label>
+
+                            <div class="col-md-6">
+
+                                <select name="city_id" required class="form-control" id="city_id">
+                                    <option value="{{ null }}">Select City</option>
+
+                                </select>
+
+                                @error('city_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -114,4 +155,28 @@ $departments=Department::get();
         </div>
     </div>
 </div>
+
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script>
+    $(document).ready(function(){
+        $('#province_id').on('change',function(){
+            var province_id=$('#province_id').val();
+
+            if(province_id){
+                $.ajax({
+                    url:'/getCities',
+                    type:'GET',
+                    data: {someattribute:province_id},
+                    success : function(response){
+                        $('#city_id').html(response);
+                    },
+                    error:function(response){
+
+                    }
+                });
+
+            }
+        });
+    });
+</script>
 @endsection
